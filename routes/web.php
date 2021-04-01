@@ -23,3 +23,4 @@ Route::view('/login','login');
 Route::post('user_login','UserController@login');
 Route::get('product','productController@product');
 Route::get('product_details/{id}','productController@product_details');
+Route::post('query','productController@search');
