@@ -1,5 +1,6 @@
 @include('header')
 
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="background-color: black;">
   <div class="carousel-inner">
     	@foreach($items as $item)
@@ -29,9 +30,23 @@
 			<div class="col-md-4 border mt-2" >
      		 <caption>{{$item['product']}}</caption>
      		 <img class="d-block w-100" src="{{$item['images']}}" alt="{{$item['product']}}">
-     		 <a href="/" class="btn btn-warning">Add to Cart</a>
-     		 <a href="/product_details/{{$item['id']}}" class="btn btn-danger">Buy Now</a>
-     		 <span style="float: right;"><b>RS,{{$item['price']}}</b></span>
+     	      <div class="row">
+              <div class="col-sm-3 m-2">
+                <form method="post" action="/addToCart">
+              @csrf
+                  <input type="hidden" name="product_id" value="{{$item['id']}}">
+                 <button class="btn btn-warning">Add to Cart</button>
+            </form>
+              </div>
+              <div class="col-sm-3 m-2">
+                <a href="/product_details/{{$item['id']}}" class="btn btn-danger">View More</a>
+              </div>
+              <div class="col-sm-4 m-2">
+                <span style="float: right;"><b>RS,{{$item['price']}}</b></span>
+                
+              </div>
+            </div>
+     	
 			</div>
   		 @endforeach
 		</div>

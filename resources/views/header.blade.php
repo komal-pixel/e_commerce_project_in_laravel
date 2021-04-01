@@ -1,3 +1,9 @@
+<?php 
+use App\Http\Controllers\productController;
+$total = 0;
+if(Session::has('user')){
+  $total = ProductController::cartItem();
+}?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,11 +36,17 @@
       <input class="form-control mr-sm-2" name="search_product" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+        <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{session()->get('user')['name']}}
+        <span class="caret"></span></button>
+          <ul class="dropdown-menu p-2" role="menu" aria-labelledby="menu1">
+           <li role="presentation"><a role="menuitem" href="/logout">Log Out</a></li>
+        </ul>
+      </div>
     <ul class="navbar-nav">
       <li class="nav-item ">
-        <a class="nav-link" href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+        <a class="nav-link" href="#"><i class="fa fa-shopping-basket" aria-hidden="true">({{$total}})</i></a>
       </li>
-     
     </ul>
   </div>
 </nav>

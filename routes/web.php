@@ -24,3 +24,9 @@ Route::post('user_login','UserController@login');
 Route::get('product','productController@product');
 Route::get('product_details/{id}','productController@product_details');
 Route::post('query','productController@search');
+Route::post('addToCart','productController@addToCart');
+
+Route::get('/logout',function(){
+	Session::forget('user');
+	return view('/login');
+});
