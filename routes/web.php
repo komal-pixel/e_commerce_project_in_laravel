@@ -30,3 +30,6 @@ Route::get('/logout',function(){
 	Session::forget('user');
 	return view('/login');
 });
+
+Route::get('cartList','productController@cartList');
+Route::get('removeitem/{id}','productController@removeItem');

@@ -1,6 +1,5 @@
 @include('header')
 
-
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="background-color: black;">
   <div class="carousel-inner">
     	@foreach($items as $item)

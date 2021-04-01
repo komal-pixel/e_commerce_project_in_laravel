@@ -17,7 +17,7 @@ if(Session::has('user')){
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Home</a>
+  <a class="navbar-brand" href="product">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -36,6 +36,8 @@ if(Session::has('user')){
       <input class="form-control mr-sm-2" name="search_product" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+          @if(Session::has('user'))
+
         <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{session()->get('user')['name']}}
         <span class="caret"></span></button>
@@ -43,9 +45,12 @@ if(Session::has('user')){
            <li role="presentation"><a role="menuitem" href="/logout">Log Out</a></li>
         </ul>
       </div>
+      @else
+          <a href="/login">Login</a>
+        @endif
     <ul class="navbar-nav">
       <li class="nav-item ">
-        <a class="nav-link" href="#"><i class="fa fa-shopping-basket" aria-hidden="true">({{$total}})</i></a>
+        <a class="nav-link" href="cartList"><i class="fa fa-shopping-basket" aria-hidden="true">({{$total}})</i></a>
       </li>
     </ul>
   </div>
