@@ -28,7 +28,7 @@ if(Session::has('user')){
         <a class="nav-link" href="#">About</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Product</a>
+        <a class="nav-link" href="my_orders">My Orders</a>
       </li>
     </ul>
     <form action="/query" method="POST" class="form-inline  my-lg-0">
@@ -46,7 +46,8 @@ if(Session::has('user')){
         </ul>
       </div>
       @else
-          <a href="/login">Login</a>
+          <a href="/login">Login</a> 
+          <a role="menuitem" href="sign_up">Sign Up</a>
         @endif
     <ul class="navbar-nav">
       <li class="nav-item ">

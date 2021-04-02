@@ -1,4 +1,8 @@
 @include('header')
+<?php use App\Http\Controllers\productController;
+	
+	$total_price = productController::total_price();
+?>
 <div class="container align-center">
 	<div class="heading text-center">
 		<h4>Your Cart Items</h4>
@@ -19,9 +23,10 @@
 				<td>{{$list->discription}}</td>
 				<td>{{$list->price}}</td>
 				<td><a href="/removeitem/{{$list->cart_id}}"><i class="fa fa-trash"></i></a></td>
-
 			</tr>
 			@endforeach
+			<tr><td></td><td></td><td></td><td>Total : {{$total_price}}</td>
+				<td><a href="order_now" class="btn btn-success">Order Now</a></td></tr>
 		</table>
 		
 	</div>

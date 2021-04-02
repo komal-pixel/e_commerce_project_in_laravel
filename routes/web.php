@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::view('/login','login');
+Route::view('sign_up','signup');
+Route::post('register','productController@register');
 Route::post('user_login','UserController@login');
 Route::get('product','productController@product');
 Route::get('product_details/{id}','productController@product_details');
@@ -33,3 +35,6 @@ Route::get('/logout',function(){
 
 Route::get('cartList','productController@cartList');
 Route::get('removeitem/{id}','productController@removeItem');
+Route::get('order_now','productController@order_now');
+Route::post('/proceed_order','productController@proceed_order');
+Route::get('my_orders','productController@my_orders');
